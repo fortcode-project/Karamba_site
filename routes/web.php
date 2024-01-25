@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
     //Routes do administrador do site para manipulação
     Route::controller(AdminController::class)->group(function(){
         Route::get("/admin/index", "index")->name("admin.index");
-        Route::post("/admin/register", "registerdatas")->name("admin.register");
+        Route::post("/admin/register/", "registerdatas")->name("admin.register");
         Route::get("/admin/edit/data/{id}", "edit")->name("admin.edit.data");
         Route::post("/admin/update/{id}", "update")->name("admin.update");
         Route::get("/admin/about", "about")->name("admin.about");
