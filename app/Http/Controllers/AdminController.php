@@ -21,8 +21,6 @@ class AdminController extends Controller
     public function registerdatas(Request $request){
         $data = new hero();
 
-       
-
         $data->title = $request->title;
         $data->description = $request->description;
        
@@ -50,10 +48,9 @@ class AdminController extends Controller
         return view($layout, ["data" => $data]);
     }
 
-    public function update(Request $request){
+    public function update(Request $request, $id){
 
        try {
-        //code...
         
         if (!is_string($request->image)) {
 
