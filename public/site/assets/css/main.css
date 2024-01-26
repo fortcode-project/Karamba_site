@@ -1755,3 +1755,16 @@ section {
   background: #000000;
   opacity: 1;
 }
+
+/*-------------------------------------------
+                VENDA DOS BILHETES
+---------------------------------------------*/
+
+.bilhete{
+  width: 38rem;
+  height: 55rem;
+}
+
+.bilhete img{
+  width: 100%;
+}

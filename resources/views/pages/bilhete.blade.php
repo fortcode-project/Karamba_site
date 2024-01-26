@@ -4,22 +4,42 @@
     @include("components.navbar")
 
         <main style="margin-top: 10rem;" class="container">
+
             <h1 class="text-center text-uppercase">
                 Venda de Bilhetes, Brevemente...
             </h1>
-            <form action="" class="d-fles justify-content-start">
-                    <div class="col-md-5 d-flex">
-                        <div class="form-group">
-                            <label for="" class="form-label">Nome: </label>
-                            <input type="text" class="form-control" placeholder="Insira o seu nome...">
+
+            <section class="container-fluid" id="formBilhete">
+                <div class="container gap-4">
+                    <div class="col-md-12 gap-4 d-flex">
+                        <div class="col-md-6 bilhete">
+                            <div class="">
+                                <img src="{{asset("site/assets/img/bilhete.png")}}" alt="">
+                            </div>
                         </div>
-    
-                        <div class="form-group">
-                            <label for="" class="form-label">Nome: </label>
-                            <input type="text" class="form-control" placeholder="Insira o seu nome...">
+
+                        <div class="col-md-6 bilhete">
+                            <div class="">
+                                <img src="{{asset("site/assets/img/bilhete.png")}}" alt="">
+                            </div>
                         </div>
                     </div>
-            </form>
+
+                    <div class="col-md-12 gap-4 d-flex" >
+                        <div class="col-md-6 bilhete">
+                            <div class="">
+                                <img src="{{asset("site/assets/img/bilhete.png")}}" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 bilhete">
+                            <div class="">
+                                <img src="{{asset("site/assets/img/bilhete.png")}}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         @include("components.contact")
     @include("components.footer")
