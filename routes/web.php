@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Route;
         Route::get("/produtos", "products")->name("site.karamba.products");
         Route::get("/contactos", "contact")->name("site.karamba.contact");
         Route::get("/bilhetes", "bilhete")->name("site.karamba.bilhete");
+        Route::get("/bilhete/{id}", "FormBilhetes")->name("admin.get.bilhete");
+        Route::post("/comprar/bilhete", "payment")->name("site.karamba.payment.bilhete");
+        Route::post("/envio/email/client", "sendEmail")->name("site.karamba.send.email");
     });
 
     //Routes do administrador do site para manipulação
@@ -26,7 +29,10 @@ use Illuminate\Support\Facades\Route;
         Route::get("/admin/detail/{id}", "deleteDetail")->name("admin.detail.delete");
         Route::get("/admin/infowhy", "infowhy")->name("admin.infowhy");
         Route::get("/admin/infowhy/edit/{id}", "editwhy")->name("admin.infowhy.edit");
+        Route::post("/admin/infowhy/update/{id}", "actualizar")->name("admin.infowhy.update");
         Route::post("/admin/infowhy/store", "storeinfowhy")->name("store.infowhy");
         Route::get("/admin/footer", "footer")->name("admin.footer");
         Route::post("/admin/contacto", "contactStore")->name("admin.footer.store");
+        Route::get("/admin/criar/bilhete/", "createBilhete")->name("admin.get.form.bilhete");
+        Route::post("/admin/gravar/bilhete", "storeBilhete")->name("admin.post.store.bilhete");
     });

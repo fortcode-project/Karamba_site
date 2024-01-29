@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Bilhete;
 use App\Models\contact;
 use App\Models\Detail;
 use App\Models\hero;
+use App\Models\InfoBilhete;
 use App\Models\infowhy;
 use Illuminate\Http\Request;
 
@@ -138,6 +140,16 @@ class AdminController extends Controller
         return view($layout, ["data" => $data]);
     }
 
+    public function actualizar(Request $request, $id){
+        infowhy::where(["id" => $id])->update([
+            "title" => $request->title,
+            "description" => $request->description,
+            "id" => $request->id,
+        ]);
+
+        return redirect()->back();
+    }
+
     public function storeinfowhy(Request $request){
         $data = new infowhy();
 
@@ -163,6 +175,37 @@ class AdminController extends Controller
         $dados->atendimento = $request->atendimento;
 
         $dados->save();
+
+        return redirect()->back();
+    }
+
+    public function createBilhete(){
+        return view("admin.widgets.users.compra");
+    }
+
+    public function storeBilhete(Request $request){
+        $dados = new Bilhete();
+        
+        $dados->title = $request->title;
+        
+        if ($image = $request->file('img')) {
+            
+            $destinationPath = 'image/';
+            
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            
+            $image->move($destinationPath, $profileImage);
+            
+            $dados->img = $profileImage;
+        }
+        $dados->save();
+        $info = new InfoBilhete();
+
+        $info->bilhete_id = $dados["id"];
+        $info->price = $request->price;
+        $info->regalias = $request->regalias;
+
+        $info->save();
 
         return redirect()->back();
     }
