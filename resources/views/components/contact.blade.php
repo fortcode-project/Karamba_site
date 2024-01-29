@@ -69,8 +69,7 @@
           <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto..." required>
         </div>
         <div class="form-group">
-          {{-- <textarea class="form-control" name="message" rows="5" placeholder="Mensagem ...." required></textarea> --}}
-          <input type="text" name="message" class="form-control">
+          <textarea class="form-control" name="message" rows="5" placeholder="Mensagem ...." required></textarea>
         </div>
         <div class="text-center"><button type="submit">Enviar</button></div>
       </form><!--End Contact Form -->
