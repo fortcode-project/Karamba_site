@@ -46,6 +46,11 @@
                     <a  class="icon-pencil-square-o" style="{{(Route::current()->getName() == "admin.footer") ? "color: #000 !important; background: #fff" : ""}}"
                     href="{{route("admin.footer")}}">Contactos/Rodapé</a> 
                 </li>
+
+                <li class="dash_sidebar_nav_li ">
+                    <a  class="icon-pencil-square-o" style="{{(Route::current()->getName() == "admin.get.form.bilhete") ? "color: #000 !important; background: #fff" : ""}}"
+                    href="{{route("admin.get.form.bilhete")}}">Bilhete</a> 
+                </li>
             </ul>
         </aside>
         <section class="dash_content">

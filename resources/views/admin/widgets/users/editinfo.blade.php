@@ -8,7 +8,7 @@
 
     <div class="dash_content_app_box" >
      
-        <form class="app_form" action="" method="post" enctype="multipart/form-data">
+        <form class="app_form" action="{{route("admin.infowhy.update", $data->id)}}" method="post" enctype="multipart/form-data">
             @csrf
             <!--ACTION SPOOFING-->
             <input type="hidden" name="id" value="{{$data->id}}"/>
