@@ -39,8 +39,7 @@
                     <p>{{$detail->description}}</p>
                 </div>
                 <div class="al-right" style="margin-top: .4rem;">
-                    <a href="#" class="btn btn-green icon-check-square-o" style="padding: 1rem">Editar</a>
-                    <a href="#" class="btn btn-green icon-check-square-o" style="padding: 1rem; backgroud: red;">Eliminar</a>
+                    <a href="{{route("admin.edit.detalhes", $detail->id)}}" class="btn btn-green icon-check-square-o" style="padding: 1rem">Editar</a>
                 </div>
             </form>
         @endforeach

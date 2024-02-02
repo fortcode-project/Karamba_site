@@ -1,5 +1,6 @@
 @extends('admin.dashboard.dash')
 @section('contente')
+@include('sweetalert::alert')
 
 <section class="dash_content_app" style=" {{count($hero) > 0 ? "display: none" : ""}}">
     <header class="dash_content_app_header">
@@ -40,60 +41,31 @@
 @endsection
 
 @section("table")
-<section class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Codigo</th>
-                <th>Titulo</th>
-                <th>Descrição</th>
-                <th>Imagem</th>
-                <th>
-                    ###
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-           @foreach ($hero as $item)
-               <tr>
-                    <td>{{$item->id}}</td>
-                    <td>{{$item->title}}</td>
-                    <td>{{$item->description}}</td>
-                    <td>{{$item->img}}</td>
-                    <td>
-                        <a href="{{route("admin.edit.data", $item->id)}}">Editar</a>
-                    </td>
-               </tr>
-           @endforeach
-        </tbody>
-    </table>
-</section>
+    <section class="container">
+        @foreach ($hero as $item)
+                <div style="display: flex; justify-content: space-around;">
+                    <div style="width: 60%">
+                        <h2>{{$item->title}}</h2>
+                        <p>{{$item->description}}</p>
+                    </div>
+                    <div style="width: 30%; border-radious: 2rem;">
+                        <img src="/image/{{$item->img}}" alt="">
+                        <a class="btn" href="{{route("admin.edit.data", $item->id)}}" class="">Editar</a>
+                    </div>
+                </div>
+        @endforeach
+    </section>
 @endsection
 
 <style>
-    table {
-  border: 1px solid black;
-  border-collapse: collapse;
-  background-color: #f5f5f5;
-  width: 100%;
-  margin-bottom: 20px;
-}
+    p{
+        font-size: 1rem;
+        
+    }
 
-th, td {
-  padding: 8px;
-  text-align: left;
-}
-
-th {
-  background-color: #333;
-  color: #fff;
-}
-
-tr:nth-child(even) {
-  background-color: #ddd;
-}
-
-tr:hover {
-  background-color: #ccc;
-}
+    .btn{
+        padding: 15px;
+        background-color: #7895;
+        border-radius: 5px;
+    }
 </style>

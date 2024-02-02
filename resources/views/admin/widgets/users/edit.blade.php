@@ -1,5 +1,6 @@
 @extends('admin.dashboard.dash')
 @section('contente')
+@include("sweetalert::alert")
 
 <section class="dash_content_app">
     <header class="dash_content_app_header">
@@ -8,7 +9,7 @@
 
     <div class="dash_content_app_box" >
      
-        <form class="app_form" action="{{route("admin.update")}}" method="post" enctype="multipart/form-data">
+        <form class="app_form" action="{{route("admin.update", $data->id)}}" method="post" enctype="multipart/form-data">
             @csrf
             <!--ACTION SPOOFING-->
             <input type="hidden" name="id" value="{{$data->id}}"/>
