@@ -11,7 +11,7 @@
         <ul>
           <li><a href="{{route("site.karamba.index")}}">Principal</a></li>
           <li><a href="{{route("site.karamba.about")}}">Sobre</a></li>
-          <li><a href="{{route("site.karamba.products")}}">Menu</a></li>
+          <li><a href="https://kytutes.com/restaurante/menu/1">Menu</a></li>
           <li><a href="{{route("site.karamba.bilhete")}}">Bilhetes</a></li>
           <li><a href="{{route("site.karamba.contact")}}">Contacto</a></li>
         </ul>

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('infowhies', function (Blueprint $table) {
             $table->id();
             $table->string("title");
-            $table->string("description", 255);
+            $table->text("description");
             $table->timestamps();
         });
     }
