@@ -18,7 +18,6 @@
                     <span for="name" class="legend">Titulo</span>
                     <input type="text" name="title" value="{{$data->title}}" required/>
                 </label>
-
             </div>
 
             <label class="label">

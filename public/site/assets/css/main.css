@@ -12,9 +12,11 @@
   --color-secondary: #37373f;
   --color-text: #ffff;
 }
+
 *{
   font-family: var(--font-default);
 }
+
 .reservas{
   background-color: var(--color-primary);
   color: var(--color-text);
@@ -1767,11 +1769,6 @@ section {
 /*-------------------------------------------
                 VENDA DOS BILHETES
 ---------------------------------------------*/
-
-.bilhete{
-  width: 32rem;
-  margin-top: 20px;
-}
 
 .bilhete img{
   width: 100%;

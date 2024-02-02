@@ -45,18 +45,21 @@
     </div>
 
     <div class="details">
-
+        @foreach ($footer as $item)
             <div class="">
-                <h1 class="title" style="font-size: 2.5rem;"></h1>
-            </div>
-            <div class="textD">
-
+                <h4>Endereço</h4>
+                <label for=""> {{$item->endereco}}</label>
+                <h4>Telefone</h4>
+                <label for=""> {{$item->telefone}}</label>
+                <h4>Email</h4>
+                <label for=""> {{$item->email}}</label>
+                <h4>Horario</h4>
+                <label for=""> {{$item->atendimento}}</label>
             </div>
             <div class="al-right" style="margin-top: 1rem;">
-                <a href="#" class="btn btn-green icon-check-square-o" style="padding: 1rem">Eliminar</a>
-                <a href="" class="btn btn-green icon-check-square-o" style="padding: 1rem">Editar</a>
+                <a href="{{route("admin.edit.conatct", $item->id)}}" class="btn btn-green icon-check-square-o" style="padding: 1rem">Editar</a>
             </div>
-
+        @endforeach
     </div>
 
 </section>

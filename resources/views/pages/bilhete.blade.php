@@ -3,32 +3,30 @@
 @section("content")
     @include("components.navbar")
 
-        <main style="margin-top: 10rem;" class="container">
+        <main style="margin-top: 5rem;">
+            <section class="container-fluid" id="formBilhete">
+                <div class="container">
+                    <div class="text-center">
+                        <h1 class="text-center text-uppercase">
+                            Venda de Bilhetes
+                        </h1>
+                        <p>Clique em uma das imagens para adquerir o bilhete</p>
+                    </div>
+                    <div class="col-md-12 row m-2">
+                        <div class="col-md-6  bilhete">
+                            <a href="https://kytutes.com/restaurante/menu/1">
+                                <img src="{{asset("site/assets/img/2.png")}}" alt="">
+                            </a>
+                        </div>
 
-            <div class="text-center">
-                <h1 class="text-center text-uppercase">
-                    Venda de Bilhetes
-                </h1>
-                <p>Clique em uma das imagens para escolhes um convite</p>
-    
-            </div>
-            <section class="container-fluid mt-0" id="formBilhete">
-                <div class=" container">
-                    <div class="row col-md-12 justify-content-center align-items-center">
-                     
-                            <div class="col-md-6 bilhete">
-                                <div class="">
-                                    <span></span>
-                                    <a href="https://kytutes.com/restaurante/menu/1">
-                                        <img src="{{asset("site/assets/img/bilhete.png")}}" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                       
+                        <div class=" col-md-6 bilhete">
+                            <a href="https://kytutes.com/restaurante/menu/1">
+                                <img src="{{asset("site/assets/img/1.png")}}" alt="">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
-        @include("components.contact")
     @include("components.footer")
 @endsection
