@@ -5,13 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class About extends Model
+class Bilhete extends Model
 {
     use HasFactory;
-    protected $table = "abouts";
+
+    protected $table = "Bilhetes";
     protected $primaryKey = "id";
     protected $fillable = [
-        "p1",
-        "p2"
+        "title",
+        "img"
     ];
+    
+    public function info(){
+        return $this->belongsTo(InfoBilhete::class);
+    }
 }

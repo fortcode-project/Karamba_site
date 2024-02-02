@@ -3,7 +3,7 @@
 @section("content")
     @include("components.navbar")
           <!-- main -->
-  <main id="main" class="mt-4">
+  <main id="main" class="mt-5">
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
@@ -37,7 +37,7 @@
              </p>
               
               <div class="position-relative mt-4">
-                <img src="site/assets/img/about-1.jpg" class="img-fluid" alt="">
+                <img src="site/assets/img/about1.jpg" class="img-fluid" alt="">
                 <a href="" class="glightbox play-btn"></a>
               </div>
             </div>

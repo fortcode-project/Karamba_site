@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Route;
         Route::get("/produtos", "products")->name("site.karamba.products");
         Route::get("/contactos", "contact")->name("site.karamba.contact");
         Route::get("/bilhetes", "bilhete")->name("site.karamba.bilhete");
+        Route::get("/bilhete/{id}", "FormBilhetes")->name("admin.get.bilhete");
+        Route::post("/comprar/bilhete", "payment")->name("site.karamba.payment.bilhete");
+        Route::post("/envio/email/client", "sendEmail")->name("site.karamba.send.email");
     });
 
     //Routes do administrador do site para manipulação
@@ -19,14 +22,32 @@ use Illuminate\Support\Facades\Route;
         Route::post("/admin/register/", "registerdatas")->name("admin.register");
         Route::get("/admin/edit/data/{id}", "edit")->name("admin.edit.data");
         Route::post("/admin/update/{id}", "update")->name("admin.update");
-        Route::get("/admin/about", "about")->name("admin.about");
-        Route::post("/admin/about/store", "storeAbout")->name("admin.store.about");
+        
         Route::get("/admin/detail", "detailview")->name("admin.detail");
         Route::post("/admin/detail/store", "storeDetail")->name("admin.store.detail");
         Route::get("/admin/detail/{id}", "deleteDetail")->name("admin.detail.delete");
         Route::get("/admin/infowhy", "infowhy")->name("admin.infowhy");
         Route::get("/admin/infowhy/edit/{id}", "editwhy")->name("admin.infowhy.edit");
+        Route::post("/admin/infowhy/update/{id}", "actualizar")->name("admin.infowhy.update");
         Route::post("/admin/infowhy/store", "storeinfowhy")->name("store.infowhy");
+
+        //Contacto e Footer
         Route::get("/admin/footer", "footer")->name("admin.footer");
         Route::post("/admin/contacto", "contactStore")->name("admin.footer.store");
+        Route::get("/admin/contact/{id}", "editContact")->name("admin.edit.conatct");
+        Route::post("/admin/contact/update/{id}", "actualizarContact")->name("admin.contact.update");
+        
+        //Detalhes
+        Route::get("/admin/datalhes/{id}", "editDetalhes")->name("admin.edit.detalhes");
+        Route::post("/admin/Detalhes/update/{id}", "actualizarDetalhes")->name("admin.detalhes.update");
+
+        //About
+        Route::get("/admin/about", "about")->name("admin.about");
+        Route::post("/admin/about/store", "storeAbout")->name("admin.store.about");
+        Route::get("/admin/about/edit/{id}", "editAbout")->name("admin.edit.about");
+        Route::post("/admin/about/actualizar/{id}", "actualizarAbout")->name("admin.about.update");
+        
+        //Bilohetes
+        Route::get("/admin/criar/bilhete/", "createBilhete")->name("admin.get.form.bilhete");
+        Route::post("/admin/gravar/bilhete", "storeBilhete")->name("admin.post.store.bilhete");
     });
