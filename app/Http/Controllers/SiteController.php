@@ -39,18 +39,12 @@ class SiteController extends Controller
     }
 
     public function bilhete(){
-        return view("pages.bilhete", ["contact" => $this->footerInfo()],
-        ["bilhete" => $this->verBilhete()]);
+        return view("pages.bilhete", ["contact" => $this->footerInfo()]);
     }
 
     public function footerInfo(){
         $contact = contact::select("endereco", "email", "telefone", "atendimento")->get();
         return $contact;
-    }
-
-    public function verBilhete(){
-        $bilhete = Bilhete::get();
-        return $bilhete;
     }
 
     public function FormBilhetes($id){

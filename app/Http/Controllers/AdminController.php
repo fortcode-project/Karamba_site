@@ -38,7 +38,7 @@ class AdminController extends Controller
 
         $data->save();
 
-        return redirect()->back()->with('success', 'Informações do Hero Registrados');
+        return redirect()->back();
         } catch (\Throwable $th) {
             //throw $th;
         }
@@ -66,7 +66,7 @@ class AdminController extends Controller
         }
 
         $data->update();
-        return redirect()->back()->with("success", "Dados Actualizados");
+        return redirect()->back();
     }
 
     //Imformações das caracteristicas do site...
