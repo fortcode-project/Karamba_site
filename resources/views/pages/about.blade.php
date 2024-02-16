@@ -47,6 +47,14 @@
 
       </div>
     </section><!-- End About Section -->
+
+    <div style="width:100%;">
+      @foreach ($anuncio as $item)
+        <div style="width: 100%">
+          <img src="image/{{$item->image ?? ""}}" alt="" style="width:100%">
+        </div>
+      @endforeach
+  </div>
   </main>
   <!-- End main -->
     @include("components.footer")

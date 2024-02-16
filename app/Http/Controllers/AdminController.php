@@ -3,26 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
-use App\Models\Bilhete;
+use App\Models\Anuncio;
 use App\Models\contact;
 use App\Models\Detail;
 use App\Models\hero;
-use App\Models\InfoBilhete;
 use App\Models\infowhy;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
     //
     public function index(){
-        $layout = "admin.widgets.users.create";
-        $response["hero"] = hero::get();
-        return view($layout, $response);
+        $layout = "sbadmin.home";
+        $type = "<h1>Infor</h1>";
+       
+        return view($layout, compact("type"));
+    }
+
+    public function hero(){
+        $hero = hero::all();
+        return view("sbadmin.hero", compact("hero"));
     }
 
     public function registerdatas(Request $request){
         try {
             //code...
+            
         $data = new hero();
 
         $data->title = $request->title;
@@ -34,13 +42,11 @@ class AdminController extends Controller
             $image->move($destinationPath, $profileImage);
             $data->img = $profileImage;
         }
-        
-
         $data->save();
 
         return redirect()->back()->with('success', 'Informações do Hero Registrados');
         } catch (\Throwable $th) {
-            //throw $th;
+            dd($th->getMessage());
         }
     }
 
@@ -72,7 +78,7 @@ class AdminController extends Controller
     //Imformações das caracteristicas do site...
     public function infowhy(){
         $infos = infowhy::all();
-        return view("admin.widgets.users.infowhy", compact("infos"));
+        return view("sbadmin.projects", compact("infos"));
     }
 
     public function editwhy($id){
@@ -106,7 +112,7 @@ class AdminController extends Controller
     //Imformações do footer Painel Admin
     public function footer(){
         $footer = contact::all();
-        return view("admin.widgets.users.contact", compact("footer"));
+        return view("sbadmin.footer", compact("footer"));
     }
 
     public function contactStore(Request $request){
@@ -125,7 +131,7 @@ class AdminController extends Controller
 
     public function editContact($id){
         $contact = contact::find($id);
-        return view("admin.widgets.users.editcontact", compact("contact"));
+        return view("sbadmin.footer", compact("contact"));
     }
 
     public function actualizarContact(Request $request, $id){
@@ -155,10 +161,10 @@ class AdminController extends Controller
     }
 
     public function detailview(){
-        $layout = "admin.widgets.users.detail";
-        $details = Detail::all();
+        $layout = "sbadmin.skill";
+        $infos = Detail::all();
 
-        return view($layout, compact("details"));
+        return view($layout, compact("infos"));
     }
 
     public function storeDetail(Request $request){
@@ -175,7 +181,7 @@ class AdminController extends Controller
 
     //Imformações sobre o site OU Sobre
     public function about(){
-        $layout = "admin.widgets.users.about";
+        $layout = "sbadmin.about";
 
         $data = About::select("p1", "p2", "id")->get();
 
@@ -207,36 +213,95 @@ class AdminController extends Controller
         return redirect()->back()->with("success", "Sobre Actualizado");
     }
 
-
     //Possivel Venda de Bilhetes
     public function createBilhete(){
         return view("admin.widgets.users.compra");
     }
 
-    public function storeBilhete(Request $request){
-        $dados = new Bilhete();
-        
-        $dados->title = $request->title;
-        
-        if ($image = $request->file('img')) {
-            
+    public function viewservice(){
+        return view("sbadmin.service");
+    }
+
+    //Gestão de publicidades
+    public function create()
+    {
+        $anuncio = Anuncio::all();
+        return view("sbadmin.publicidade", compact("anuncio"));
+    }
+
+    public function store(Request $request)
+    {
+        $anuncio = new Anuncio();
+
+        $anuncio->name = $request->name;
+        $anuncio->description = $request->description;
+
+        if ($image = $request->file('image')) {
             $destinationPath = 'image/';
-            
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            
             $image->move($destinationPath, $profileImage);
-            
-            $dados->img = $profileImage;
+            $anuncio->image = $profileImage;
         }
-        $dados->save();
-        $info = new InfoBilhete();
 
-        $info->bilhete_id = $dados["id"];
-        $info->price = $request->price;
-        $info->regalias = $request->regalias;
-
-        $info->save();
+        $anuncio->save();
 
         return redirect()->back();
     }
+
+    public function updateAnuncio(Request $request)
+    {
+       
+        $anuncio =  Anuncio::find($request->id);
+
+        $anuncio->name = $request->name;
+        $anuncio->description = $request->description;
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $anuncio->image = $profileImage;
+        }
+
+        $anuncio->save();
+
+        return redirect()->back();
+    }
+
+    public function users(){
+        $users = User::all();
+        return view("sbadmin.user", compact("users"));
+    }
+
+    public function storeUser(Request $request)
+    {
+        try {
+            //Create key for authentication users
+            function random_string($length) {
+                $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 0; $i < $length; $i++) {
+                    $randomString .= $characters[rand(0, $charactersLength - 1)];
+                }
+                return $randomString;
+            }
+
+            $key = random_string(50);
+
+            $anuncio = new User();
+    
+            $anuncio->name = $request->name;
+            $anuncio->email = $request->email;
+            $anuncio->key = $key;
+            $anuncio->password = Hash::make($request->password);
+    
+            $anuncio->save();
+    
+            return redirect()->back();
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
+        }
+    }
+
 }
