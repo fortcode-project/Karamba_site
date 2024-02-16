@@ -19,9 +19,13 @@ use Illuminate\Support\Facades\Route;
     //Routes do administrador do site para manipulação
     Route::controller(AdminController::class)->group(function(){
         Route::get("/admin/index", "index")->name("admin.index");
+        Route::get("/admin/hero", "hero")->name("admin.index.hero");
         Route::post("/admin/register/", "registerdatas")->name("admin.register");
         Route::get("/admin/edit/data/{id}", "edit")->name("admin.edit.data");
         Route::post("/admin/update/{id}", "update")->name("admin.update");
+
+        Route::get("/serviços", "viewservice")->name("admin.view.service");
+        Route::post("/serviços", "storeservice")->name("admin.store.service");
         
         Route::get("/admin/detail", "detailview")->name("admin.detail");
         Route::post("/admin/detail/store", "storeDetail")->name("admin.store.detail");
@@ -50,4 +54,12 @@ use Illuminate\Support\Facades\Route;
         //Bilohetes
         Route::get("/admin/criar/bilhete/", "createBilhete")->name("admin.get.form.bilhete");
         Route::post("/admin/gravar/bilhete", "storeBilhete")->name("admin.post.store.bilhete");
-    });
+
+        Route::get("/create", "create")->name("anuncio.management.create");
+        Route::post("/store", "store")->name("anuncio.management.store");
+        Route::get("/show", "show")->name("anuncio.management.show");
+        Route::get("/users", "users")->name("anuncio.management.users");
+        Route::post("/user/store", "storeUser")->name("anuncio.management.user.store");
+        Route::post("/update", "updateAnuncio")->name("anuncio.management.update.anuncio");
+
+});

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\Envio;
 use App\Models\About;
+use App\Models\Anuncio;
 use App\Models\Bilhete;
 use App\Models\contact;
 use App\Models\customer;
@@ -22,12 +23,14 @@ class SiteController extends Controller
         $hero = hero::select("title", "description", "img")->get();
         $info = infowhy::select("title", "description")->get();
         $details = Detail::select("title", "description")->get();
-        return view("pages.home", compact("hero", "info", "details"), ["contact" => $this->footerInfo()]);
+        $anuncio = Anuncio::select("name", "image")->get(1);
+        return view("pages.home", compact("hero", "info", "details", "anuncio"), ["contact" => $this->footerInfo()]);
     }
 
     public function about(){
         $about = About::select("p1", "p2")->get();
-        return view("pages.about", compact("about"), ["contact" => $this->footerInfo()]);
+        $anuncio = Anuncio::select("name", "image")->get(1);
+        return view("pages.about", compact("about", "anuncio"), ["contact" => $this->footerInfo()]);
 }
 
     public function products(){
