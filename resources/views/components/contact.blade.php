@@ -20,7 +20,7 @@
             </div><!-- End Info Item -->
   
             <div class="col-md-6">
-              <div class="info-item d-flex align-items-center">
+              <div class="info-item d-flex align-items-center justify-content-center">
                 <i class="icon bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h3>Email</h3>
