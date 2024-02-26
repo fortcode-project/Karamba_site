@@ -21,7 +21,7 @@
                                 </div>
                             </div>
                             <!-- Card Body -->
-                            <div class="card-body d-flex">
+                            <div class="card-body ">
                                 <div class="col-xl-6">
                                     <form action="{{route("anuncio.management.user.store")}}" method="post" enctype="multipart/form-data">
                                         @csrf
@@ -46,12 +46,14 @@
                                     </form>
                                 </div>
 
-                                <div class="col-xl-6">
+                                <div class="">
                                     <table class="table ">
                                         <thead>
                                             <th scope="col">id</th>
                                             <th scope="col">Nome</th>
                                             <th scope="col">Email</th>
+                                            <th scope="col">Chave</th>
+                                            <th scope="col">Acção</th>
                                         </thead>
                                         <tbody>
                                             @foreach ($users as $user)
@@ -59,6 +61,14 @@
                                                     <td class="row">{{$user->id}}</td>
                                                     <td>{{$user->name}}</td>
                                                     <td>{{$user->email}}</td>
+                                                    <td>
+                                                        <div>
+                                                            {{$user->key}}
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{route("anuncio.management.delete.user", $user->id)}}" class="btn btn-danger">Eliminar</a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

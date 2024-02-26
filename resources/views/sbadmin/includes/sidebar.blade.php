@@ -55,12 +55,21 @@
         </a>
     </li>
 
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item {{Route::current()->getName() == "anuncio.management.create" ? "bg-white" : ""}}">
-        <a class="nav-link {{Route::current()->getName() == "anuncio.management.create" ? "text-primary" : ""}}" href="{{route("anuncio.management.create")}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
             <span>Publicidade</span>
         </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item {{Route::current()->getName() == "anuncio.management.view.retangulo" ? "text-primary" : ""}}" href="{{route("anuncio.management.view.retangulo")}}">Criar Anúncio</a>
+                <a class="collapse-item {{Route::current()->getName() == "anuncio.management.lista.quadrado" ? "text-primary" : ""}}" href="{{route("anuncio.management.lista.quadrado")}}">Quadrado</a>
+                <a class="collapse-item {{Route::current()->getName() == "anuncio.management.lista.vertical" ? "text-primary" : ""}}" href="{{route("anuncio.management.lista.vertical")}}">Vertical</a>
+                <a class="collapse-item {{Route::current()->getName() == "anuncio.management.lista.horizontal" ? "text-primary" : ""}}" href="{{route("anuncio.management.lista.horizontal")}}">Horizontal</a>
+            </div>
+        </div>
     </li>
 
     <!-- Nav Item - Dashboard -->

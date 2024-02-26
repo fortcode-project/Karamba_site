@@ -66,14 +66,6 @@
       </div>
     </section><!-- End Why Us Section -->
 
-    <div style="width:100%;">
-        @foreach ($anuncio as $item)
-          <div style="width: 100%">
-            <img src="image/{{$item->image ?? ""}}" alt="" style="width:100%">
-          </div>
-        @endforeach
-    </div>
-
     <!-- ======= Stats Counter Section ======= -->
     <section id="stats-counter" class="stats-counter">
       <div class="container" data-aos="zoom-out">
@@ -115,5 +107,24 @@
     @include("components.contact")
   </main>
 <!-- End main -->
+
+<div class="container-fluid mb-2">
+  <div class="container position-relative">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        @foreach ($Horizontal as $item)
+        <div class="carousel-item active">
+            <a href="{{$item->link}}" target="_blank">
+              <div style="width: 100%">
+                <img src="{{url("/storage/{$item->image}")}}" alt="" style="width:100%">
+                <div style="position: absolute; top:5px; width:10px; height: 10px; right:28px;"><i class="bi bi-info-circle-fill cursor-pointer" style="color: #ffffff" title="Está Publicidade é de inteira responsabilidade da Fort-Code"></i></div>
+              </div>
+            </a>
+          </div>
+          @endforeach
+      </div>
+    </div>
+  </div>
+</div>
   @include("components.footer")
 @endsection

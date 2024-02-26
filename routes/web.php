@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
         Route::get("/bilhete/{id}", "FormBilhetes")->name("admin.get.bilhete");
         Route::post("/comprar/bilhete", "payment")->name("site.karamba.payment.bilhete");
         Route::post("/envio/email/client", "sendEmail")->name("site.karamba.send.email");
+
+        Route::get("/api/datas", "api");
     });
 
     //Routes do administrador do site para manipulação
@@ -54,12 +56,20 @@ use Illuminate\Support\Facades\Route;
         //Bilohetes
         Route::get("/admin/criar/bilhete/", "createBilhete")->name("admin.get.form.bilhete");
         Route::post("/admin/gravar/bilhete", "storeBilhete")->name("admin.post.store.bilhete");
-
-        Route::get("/create", "create")->name("anuncio.management.create");
+        
+        //Anúncios
+        Route::get("/anuncio/retangulo", "anuncioRetangulo")->name("anuncio.management.view.retangulo");
         Route::post("/store", "store")->name("anuncio.management.store");
-        Route::get("/show", "show")->name("anuncio.management.show");
+        Route::post("/update", "updateAnuncio")->name("anuncio.management.update");
+        Route::post("/store/anuncio", "storeQ")->name("anuncio.management.store.quadrado");
+        Route::post("/update/anuncio/", "updateQ")->name("anuncio.management.update.quadrado");
+        Route::get("/delete/{id}", "anuncioDelete")->name("anuncio.management.delete");
+        Route::get("/lista/anuncio/q", "anuncioQuadrado")->name("anuncio.management.lista.quadrado");
+        Route::get("/lista/anuncio/v", "anuncioVertical")->name("anuncio.management.lista.vertical");
+        Route::get("/lista/anuncio/h", "anuncioHorizontal")->name("anuncio.management.lista.horizontal");
+        
         Route::get("/users", "users")->name("anuncio.management.users");
         Route::post("/user/store", "storeUser")->name("anuncio.management.user.store");
-        Route::post("/update", "updateAnuncio")->name("anuncio.management.update.anuncio");
+        Route::get("/user/{id}", "deleteUser")->name("anuncio.management.delete.user");
 
 });

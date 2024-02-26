@@ -31,6 +31,19 @@
 
     @yield("content")
 
+    <script>
+      window.embeddedChatbotConfig = {
+      chatbotId: "eQkr0qi5DTgSZfzdFQLWi",
+      domain: "www.chatbase.co"
+      }
+      </script>
+      <script
+      src="https://www.chatbase.co/embed.min.js"
+      chatbotId="eQkr0qi5DTgSZfzdFQLWi"
+      domain="www.chatbase.co"
+      defer>
+    </script>
+
     <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <div id="preloader"></div>
@@ -45,6 +58,5 @@
   
     <!-- Template Main JS File -->
     <script src="{{asset("site/assets/js/main.js")}}"></script>
-  
   </body>
   </html>
