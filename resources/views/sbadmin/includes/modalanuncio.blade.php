@@ -8,7 +8,7 @@
         </div>
         <div class="modal-body">
             <div class="">
-                <form action="{{route("anuncio.management.update")}}" method="post" enctype="multipart/form-data">
+                <form action="{{route("anuncio.management.update.quadrado")}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id" id="id" value="{{ $item->id ?? ""}}">
                     <div class="form-group">
@@ -17,10 +17,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Tipo/Formato</label>
-                        <select class="form-control" name="tipo" id="" disabled="disabled">
-                            <option value="">{{$item->tipo ?? ""}}</option>
-                        </select>
+                        <label class="form-label">Descrição</label>
+                        <input type="text" name="description" class="form-control" value="{{$item->description ?? ""}}" placeholder="Insira a informação...">
                     </div>
 
                     <div class="form-group">
@@ -34,7 +32,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="Actualizar">
+                        <input type="submit" class="btn btn-primary" value="Cadastrar">
                     </div>
                 </form>
             </div>

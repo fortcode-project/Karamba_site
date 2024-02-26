@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->enum("status", ["ativo", "inativo"]);
+            $table->string("link");
             $table->string("image");
-            $table->text("description");
+            $table->text("tipo");
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

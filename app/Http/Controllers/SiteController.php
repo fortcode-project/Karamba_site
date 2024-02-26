@@ -13,6 +13,7 @@ use App\Models\hero;
 use App\Models\InfoBilhete;
 use App\Models\infowhy;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redis;
 
@@ -23,14 +24,16 @@ class SiteController extends Controller
         $hero = hero::select("title", "description", "img")->get();
         $info = infowhy::select("title", "description")->get();
         $details = Detail::select("title", "description")->get();
-        $anuncio = Anuncio::select("name", "image")->get(1);
-        return view("pages.home", compact("hero", "info", "details", "anuncio"), ["contact" => $this->footerInfo()]);
+        $Horizontal = Anuncio::where("tipo", "Horizontal")->get();
+        
+        return view("pages.home", compact("hero", "info", "details", "Horizontal"), ["contact" => $this->footerInfo()]);
     }
 
     public function about(){
         $about = About::select("p1", "p2")->get();
-        $anuncio = Anuncio::select("name", "image")->get(1);
-        return view("pages.about", compact("about", "anuncio"), ["contact" => $this->footerInfo()]);
+        $Vertical = Anuncio::where("tipo", "Vertical")->get();
+        $Horizontal = Anuncio::where("tipo", "Horizontal")->get();
+        return view("pages.about", compact("about", "Vertical", "Horizontal"), ["contact" => $this->footerInfo()]);
 }
 
     public function products(){
@@ -38,7 +41,8 @@ class SiteController extends Controller
     }
 
     public function contact(){
-        return view("pages.contact" , ["contact" => $this->footerInfo()]);
+        $Horizontal = Anuncio::where("tipo", "Horizontal")->get();
+        return view("pages.contact", ["contact" => $this->footerInfo()], compact("Horizontal"));
     }
 
     public function bilhete(){
@@ -84,8 +88,7 @@ class SiteController extends Controller
     }
 
     public function sendEmail(Request $request){
-        // $data  = $request->all();
-    $data =   Mail::to("pachecobarrosodig3@gmail.com", "Pacheco Barroso")->send(new Envio([
+        $data =   Mail::to("pachecobarrosodig3@gmail.com", "Pacheco Barroso")->send(new Envio([
             "name" => $request->name,
             "email" => $request->email,
             "subject" => $request->subject,
@@ -94,5 +97,16 @@ class SiteController extends Controller
       ]));
 
        return redirect()->back();
+    }
+
+    public function api(){
+        $api = Http::post(
+            "https://karamba.ao/api/anuncios",
+            ["key" => "PixkMpHWNQQxwxKiEmdrrZeyhbMNVaXVKwVlkYQcvfNlSpFmeI"]
+        );
+
+        $apiArray = $api->json();
+
+        return view("pages.datas", ["apiArray" => $apiArray]);
     }
 }

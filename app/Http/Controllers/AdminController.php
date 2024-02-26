@@ -223,10 +223,24 @@ class AdminController extends Controller
     }
 
     //Gestão de publicidades
-    public function create()
+    public function anuncioRetangulo()
     {
-        $anuncio = Anuncio::all();
-        return view("sbadmin.publicidade", compact("anuncio"));
+        return view("sbadmin.tamanho.retangulo");
+    }
+
+    public function anuncioQuadrado(){
+        $Quadrado = Anuncio::where("tipo", "Quadrado")->get();
+        return view("sbadmin.tamanho.quadrado", compact("Quadrado"));
+    }
+
+    public function anuncioVertical(){
+        $Vertical = Anuncio::where("tipo", "Vertical")->get();
+        return view("sbadmin.tamanho.vertical", compact("Vertical"));
+    }
+
+    public function anuncioHorizontal(){
+        $Horizontal = Anuncio::where("tipo", "Horizontal")->get();
+        return view("sbadmin.tamanho.horizontal", compact("Horizontal"));
     }
 
     public function store(Request $request)
@@ -234,13 +248,16 @@ class AdminController extends Controller
         $anuncio = new Anuncio();
 
         $anuncio->name = $request->name;
-        $anuncio->description = $request->description;
+        $anuncio->link = $request->link;
+        $anuncio->tipo = $request->tipo;
 
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $anuncio->image = $profileImage;
+        if ($request->hasFile("image")) {
+            //$destinationPath = "public/image";
+            $image = $request->file("image");
+            //$imageName = $image->getClientOriginalName(); 
+            $path = $request->file("image")->store("uploads"); //podes meter uploads/retangulo ou quadrado
+
+            $anuncio->image = $path;
         }
 
         $anuncio->save();
@@ -250,21 +267,29 @@ class AdminController extends Controller
 
     public function updateAnuncio(Request $request)
     {
-       
+
         $anuncio =  Anuncio::find($request->id);
 
         $anuncio->name = $request->name;
-        $anuncio->description = $request->description;
+        $anuncio->link = $request->link;
 
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $anuncio->image = $profileImage;
+        if ($request->hasFile("image")) {
+            //  $destinationPath = "public/image";
+            $image = $request->file("image");
+            //$imageName = $image->getClientOriginalName();
+            $path = $request->file("image")->store("uploads");
+
+            $anuncio->image = $path;
         }
 
         $anuncio->save();
 
+        return redirect()->back();
+    }
+
+    public function anuncioDelete($id){
+        $anuncio = Anuncio::find($id);
+        $anuncio->delete();
         return redirect()->back();
     }
 
@@ -304,4 +329,9 @@ class AdminController extends Controller
         }
     }
 
+    public function deleteUser($id){
+        $userdelete = User::find($id);
+        $userdelete->delete();
+        return redirect()->back();
+    }
 }
