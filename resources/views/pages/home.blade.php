@@ -40,7 +40,7 @@
                 {{$item->description}}
               </p>
               <div class="text-center">
-                <a href="#" class="more-btn">Saber Mais <i class="bx bx-chevron-right"></i></a>
+                <a href="{{route("site.karamba.about")}}" class="more-btn">Saber Mais <i class="bx bx-chevron-right"></i></a>
               </div>
             </div>
           </div><!-- End Why Box -->
@@ -66,17 +66,6 @@
       </div>
     </section><!-- End Why Us Section -->
 
-<<<<<<< HEAD
-    <div style="width:100%;">
-        @foreach ($anuncio as $item)
-          <div style="width: 100%">
-            <img src="image/{{$item->image ?? ""}}" class="img-fluid" alt="" style="width:100%">
-          </div>
-        @endforeach
-    </div>
-
-=======
->>>>>>> refs/remotes/origin/main
     <!-- ======= Stats Counter Section ======= -->
     <section id="stats-counter" class="stats-counter">
       <div class="container" data-aos="zoom-out">

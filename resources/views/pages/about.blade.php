@@ -11,7 +11,7 @@
 
         <div class="d-flex">
           <div>
-            <div class="section-header" style="margin-left: -50rem;">
+            <div class="section-header" style="margin-left: -60rem;">
               <h2>Quem Somos</h2>
               <p>Quem Somos</p>
             </div>
@@ -71,12 +71,6 @@
       </div>
     </section><!-- End About Section -->
 
-<<<<<<< HEAD
-    <div style="width:100%;">
-      @foreach ($anuncio as $item)
-        <div style="width: 100%">
-          <img src="image/{{$item->image ?? ""}}" class="img-fluid"  alt="" style="width:100%">
-=======
     <div class="container-fluid mb-2">
       <div class="container position-relative">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -92,7 +86,7 @@
               </div>
               @endforeach
           </div>
->>>>>>> refs/remotes/origin/main
+
         </div>
       </div>
     </div>

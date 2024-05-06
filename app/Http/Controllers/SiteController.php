@@ -88,12 +88,12 @@ class SiteController extends Controller
     }
 
     public function sendEmail(Request $request){
-        $data =   Mail::to("pachecobarrosodig3@gmail.com", "Pacheco Barroso")->send(new Envio([
+        $data =   Mail::to("info@karamba.ao
+", "Karamba")->send(new Envio([
             "name" => $request->name,
             "email" => $request->email,
             "subject" => $request->subject,
             "message" => $request->message,
-            "from" => $request->email,
       ]));
 
        return redirect()->back();
