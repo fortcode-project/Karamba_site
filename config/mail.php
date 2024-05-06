@@ -44,7 +44,9 @@ return [
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
-        ],
+            'auth_mode' => null,
+            'verify_perr' =>false
+                ],
 
         'ses' => [
             'transport' => 'ses',
