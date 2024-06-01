@@ -3,6 +3,9 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Loja\ApiController;
+use App\Livewire\Site\DeliveryStatusComponent;
+
 use Illuminate\Support\Facades\Route;
 
     //Routes do site 
@@ -15,7 +18,6 @@ use Illuminate\Support\Facades\Route;
         Route::get("/bilhete/{id}", "FormBilhetes")->name("admin.get.bilhete");
         Route::post("/comprar/bilhete", "payment")->name("site.karamba.payment.bilhete");
         Route::post("/envio/email/client", "sendEmail")->name("site.karamba.send.email");
-
         Route::get("/api/datas", "api");
     });
 
@@ -79,3 +81,15 @@ Route::controller(LoginController::class)->group(function(){
     Route::post("/login", "login")->name("anuncio.login");
     Route::get("/sair", "logout")->name("anuncio.logout");
 });
+
+Route::controller(ApiController::class)->group(function(){
+    Route::get("/loja/menu/{category?}" ,"loja")->name("api.loja");
+    Route::get("/add/cart/{id}", "addCart")->name("loja.add.cart");
+    Route::get("/lista/Carrinho/", "getTotalCart")->name("loja.get.cart.total");
+    Route::get('/remove-item/{itemId}', 'removeItem')->name('cart.remove');
+    Route::get('/clear-cart', 'clearCart')->name('cart.clear');
+    Route::post('/update-quantity', 'updateQuantity')->name('update_quantity');
+    Route::get("/select/delivery/{price}", "select_delivery")->name("select.delivery");
+});
+
+Route::get("/encomenda/estado/{id}", DeliveryStatusComponent::class)->name("delivery.status");

@@ -1773,3 +1773,14 @@ section {
 .bilhete img{
   width: 100%;
 }
+
+.cartcout {
+  position: fixed;
+  right: 70px;
+  bottom: 50px;
+  z-index: 99999;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
