@@ -1,3 +1,4 @@
+const endpoint="https://www.rafaelxander.com/chat"
 document.getElementById('chatbot-button').addEventListener('click', function() {
     const chatbotContainer = document.getElementById('chatbot-container');
     chatbotContainer.style.display = 'flex';
@@ -80,7 +81,7 @@ function addMessage(className, message) {
 }
 
 async function sendMessageToApi(message) {
-    const apiUrl = 'http://167.99.143.216/chat'; // Substitua pela URL da sua API
+    const apiUrl = endpoint; // Substitua pela URL da sua API
    // const apiUrl = 'http://localhost:7000/chat'; // Substitua pela URL da sua API
     const response = await fetch(apiUrl, {
         method: 'POST',
