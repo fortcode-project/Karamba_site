@@ -75,6 +75,8 @@ use Illuminate\Support\Facades\Route;
     Route::get("/users", "users")->name("anuncio.management.users");
     Route::post("/user/store", "storeUser")->name("anuncio.management.user.store");
     Route::get("/user/{id}", "deleteUser")->name("anuncio.management.delete.user");
+
+    Route::get("/encomenda/controle", "deliveryGet")->name("karamba.delivery.list");
 });
 
 Route::controller(LoginController::class)->group(function(){

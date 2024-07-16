@@ -334,4 +334,9 @@ class AdminController extends Controller
         $userdelete->delete();
         return redirect()->back();
     }
+
+    public function deliveryGet()
+    {
+        return view("sbadmin.delivery.app");
+    }
 }

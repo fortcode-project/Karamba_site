@@ -18,6 +18,13 @@
             <span>Dashboard</span>
         </a>
     </li>
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item {{(Route::current()->getName() == "karamba.delivery.list") ? "bg-white" : ""}}">
+        <a class="nav-link {{(Route::current()->getName() == "karamba.delivery.list") ? "text-primary" : ""}}" href="{{route("karamba.delivery.list")}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Contrle de Encomeda</span>
+        </a>
+    </li>
 
     <li class="nav-item {{(Route::current()->getName() == "admin.index.hero") ? "bg-white" : ""}}">
         <a class="nav-link {{(Route::current()->getName() == "admin.index.hero") ? "text-primary" : ""}}" href="{{route("admin.index.hero")}}">
