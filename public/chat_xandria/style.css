@@ -31,7 +31,11 @@ body {
 }
 
 .chatbot-header {
+<<<<<<< HEAD
     background-color: #F4C400;
+=======
+    background-color: #4a90e2;
+>>>>>>> 9bc5980f3d105f9037a19ae1e4d8dde94e529295
     color: #fff;
     padding: 15px;
     display: flex;
@@ -78,12 +82,20 @@ body {
 }
 
 #user-input:focus {
+<<<<<<< HEAD
     border-color: #F4C400;
+=======
+    border-color: #4a90e2;
+>>>>>>> 9bc5980f3d105f9037a19ae1e4d8dde94e529295
 }
 
 #send-message {
     border: none;
     padding: 10px 20px;
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 9bc5980f3d105f9037a19ae1e4d8dde94e529295
     color: #fff;
     border-radius: 20px;
     cursor: pointer;
@@ -91,17 +103,29 @@ body {
 }
 
 #send-message:hover {
+<<<<<<< HEAD
     background-color: #F4C400;
+=======
+    background-color: #357ab8;
+>>>>>>> 9bc5980f3d105f9037a19ae1e4d8dde94e529295
 }
 
 #chatbot-button {
     position: fixed;
     bottom: 20px;
+<<<<<<< HEAD
     right: 60px;
     background-color: #F4C400;
     color: #fff;
     border: none;
     padding: 12px 12px;
+=======
+    right: 20px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+>>>>>>> 9bc5980f3d105f9037a19ae1e4d8dde94e529295
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -109,7 +133,11 @@ body {
 }
 
 #chatbot-button:hover {
+<<<<<<< HEAD
     background-color:#F4C400;
+=======
+    background-color: #357ab8;
+>>>>>>> 9bc5980f3d105f9037a19ae1e4d8dde94e529295
 }
 
 .message {
@@ -128,7 +156,11 @@ body {
 }
 
 .user-message {
+<<<<<<< HEAD
     background-color: #F4C400;
+=======
+    background-color: #4a90e2;
+>>>>>>> 9bc5980f3d105f9037a19ae1e4d8dde94e529295
     color: #fff;
     align-self: flex-end;
 }
@@ -150,7 +182,11 @@ body {
     width: 12px;
     height: 12px;
     border-radius: 50%;
+<<<<<<< HEAD
     background-color: #F4C400;
+=======
+    background-color: #4a90e2;
+>>>>>>> 9bc5980f3d105f9037a19ae1e4d8dde94e529295
     animation: loading 1s infinite;
     margin-right: 8px;
 }
@@ -160,7 +196,11 @@ body {
     width: 12px;
     height: 12px;
     border-radius: 50%;
+<<<<<<< HEAD
     background-color: #F4C400;
+=======
+    background-color: #4a90e2;
+>>>>>>> 9bc5980f3d105f9037a19ae1e4d8dde94e529295
     animation: loading 1s infinite;
     animation-delay: 0.5s;
 }

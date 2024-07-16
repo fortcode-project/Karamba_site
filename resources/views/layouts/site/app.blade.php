@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./chat_xandria/style.css">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -34,6 +35,7 @@
 
     @yield("content")
 
+<<<<<<< HEAD
       {{-- chat --}}
       <div class="chatbot-container" id="chatbot-container">
         <div class="chatbot-header">
@@ -54,6 +56,28 @@
     <button id="chatbot-button"><img width="40" src="{{asset("chat_xandria/icone.png")}}" alt=""></button>
 
     <script src="{{asset("chat_xandria/script.js")}}"></script>
+=======
+    {{-- chat --}}
+    <div class="chatbot-container" id="chatbot-container">
+      <div class="chatbot-header">
+          <div class="" style="display: flex;gap:5px;align-items: center;">
+              <img width="30" src="../chat_xandria/icone.png" alt="">
+              <h3>Xándria</h3>
+          </div>
+          <button id="close-chatbot">X</button>
+      </div>
+      <div class="chatbot-body" id="chatbot-body">
+          <div class="message bot-message">Olá! Como posso ajudar você hoje?</div>
+      </div>
+      <div class="chatbot-footer">
+          <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+          <button id="send-message"><img width="20" src="../chat_xandria/send.png" alt=""></button>
+      </div>
+  </div>
+  <button id="chatbot-button"><img width="40" src="./chat_xandria/icone.png" alt=""></button>
+
+  <script src="./chat_xandria/script.js"></script>
+>>>>>>> 9bc5980f3d105f9037a19ae1e4d8dde94e529295
 
     <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <a href="{{route("loja.get.cart.total")}}" style="color: #fff;background: #F4C400;" class="cartcout d-flex align-items-center justify-content-center">      
