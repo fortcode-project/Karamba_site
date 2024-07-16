@@ -109,4 +109,31 @@ class SiteController extends Controller
 
         return view("pages.datas", ["apiArray" => $apiArray]);
     }
+
+    public function deliveryStatus()
+    {
+        $itensColletions = collect();
+        $id = request('codereference');
+        // Check for search input
+        if ($id) {
+
+            $headers = [
+                "Accept" => "application/json",
+                "Content-Type" => "application/json",
+                "Authorization" => "Bearer 2|KLgAGFkyGxcwcMQIg1GAPPPBvR64BwtRxw9oTWsRd9fee9ee",
+            ];
+            
+            //Chamada a API
+            $response = Http::withHeaders($headers)
+            ->get("https://kytutes.com/api/deliveries?reference=$id");
+
+            $itensColletions = collect(json_decode($response));
+        } else {
+            $itensColletions = collect();
+        }
+
+        return view("pages.statusdelivery",
+            compact("itensColletions") 
+        );
+    }
 }

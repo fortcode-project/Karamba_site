@@ -19,13 +19,13 @@
                                         <tr>
                                             <td class="product__cart__item">
                                                 <div class="product__cart__item__pic">
-                                                    @if ($item->attributes['image'] != null)
+                                                    @if ($item->attributes->image != null)
                                                         <img style="width: 80px"
-                                                            src="https://kytutes.com/storage/{{ $item->attributes['image'] }}"
+                                                            src="https://kytutes.com/storage/{{ $item->attributes->image }}"
                                                             class="img-fluid" alt="">
                                                     @else
-                                                        <img style="width: 80px" src="/storage/notfound.png"
-                                                            class="img-fluid" alt="">
+                                                        <img style="width: 80px" src="{{asset("notfound.png")}}"
+                                                        class="img-fluid" alt="">
                                                     @endif
                                                 </div>
 
@@ -64,12 +64,6 @@
                                         Comprar</a>
                                 </div>
                             </div>
-                            {{-- <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="continue__btn update__btn">
-                                    <a href="#" style="background: #F4C400; color:#fff; border: none;"><i
-                                            class="fa fa-spinner"></i>Actualizar Carrinho</a>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                     <div class="col-lg-4">

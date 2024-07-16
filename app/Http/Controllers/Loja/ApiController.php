@@ -14,7 +14,6 @@ class ApiController extends Controller
          $curl = curl_init();
 
          curl_setopt_array($curl, [
-         //CURLOPT_URL => "https://kytutes.com/api/locations",
          CURLOPT_URL => "https://kytutes.com/api/items",
          CURLOPT_RETURNTRANSFER => true,
          CURLOPT_ENCODING => "",
@@ -27,7 +26,7 @@ class ApiController extends Controller
              "Accept: application/json",
              "Authorization: Bearer 2|KLgAGFkyGxcwcMQIg1GAPPPBvR64BwtRxw9oTWsRd9fee9ee",
              "Content-Type: application/json"
-         ],
+            ],
          ]);
 
          $response = curl_exec($curl);

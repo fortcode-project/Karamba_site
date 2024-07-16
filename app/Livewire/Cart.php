@@ -37,6 +37,7 @@ class Cart extends Component
         } catch (\Throwable $th) {
             //throw $th;
         }
+        
         return view('livewire.cart',[
             "locations"=>$this->getAllLocations(),
         ]);
@@ -107,13 +108,10 @@ class Cart extends Component
         ]);
         $cupon = collect(json_decode($response));
       
-      
         if (isset($cupon['discount'])) {
             session()->put('discountvalue',$cupon['discount']);
             $this->code = "";
         }
-
-
     }
 
     public function checkout()

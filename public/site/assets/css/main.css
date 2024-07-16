@@ -1766,19 +1766,11 @@ section {
   opacity: 1;
 }
 
-/*-------------------------------------------
-                VENDA DOS BILHETES
----------------------------------------------*/
-
-.bilhete img{
-  width: 100%;
-}
-
 .cartcout {
   position: fixed;
-  right: 70px;
-  bottom: 50px;
-  z-index: 99999;
+  right: 130px;
+  bottom: 25px;
+  z-index: 99;
   width: 60px;
   height: 60px;
   border-radius: 50px;

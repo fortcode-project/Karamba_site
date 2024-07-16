@@ -26,6 +26,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{asset("site/assets/css/main.css")}}" rel="stylesheet">
+  <link rel="stylesheet" href="{{asset("chat_xandria/style.css")}}">
   @livewireStyles
 </head>
 
@@ -33,18 +34,26 @@
 
     @yield("content")
 
-    <script>
-      window.embeddedChatbotConfig = {
-      chatbotId: "eQkr0qi5DTgSZfzdFQLWi",
-      domain: "www.chatbase.co"
-      }
-      </script>
-      <script
-      src="https://www.chatbase.co/embed.min.js"
-      chatbotId="eQkr0qi5DTgSZfzdFQLWi"
-      domain="www.chatbase.co"
-      defer>
-    </script>
+      {{-- chat --}}
+      <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <div class="" style="display: flex;gap:5px;align-items: center;">
+                <img width="30" src="{{asset("chat_xandria/icone.png")}}" alt="">
+                <h3>Xándria</h3>
+            </div>
+            <button id="close-chatbot">X</button>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="message bot-message">Olá! Como posso ajudar você hoje?</div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+            <button id="send-message"><img width="20" src="{{asset("chat_xandria/send.png")}}" alt=""></button>
+        </div>
+    </div>
+    <button id="chatbot-button"><img width="40" src="{{asset("chat_xandria/icone.png")}}" alt=""></button>
+
+    <script src="{{asset("chat_xandria/script.js")}}"></script>
 
     <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <a href="{{route("loja.get.cart.total")}}" style="color: #fff;background: #F4C400;" class="cartcout d-flex align-items-center justify-content-center">      
@@ -52,6 +61,7 @@
         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
       </svg>
     </a>
+    
     <div id="preloader"></div>
   
     <!-- Vendor JS Files -->

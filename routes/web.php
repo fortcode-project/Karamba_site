@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
         Route::post("/comprar/bilhete", "payment")->name("site.karamba.payment.bilhete");
         Route::post("/envio/email/client", "sendEmail")->name("site.karamba.send.email");
         Route::get("/api/datas", "api");
+        Route::get("/delivery/status", "deliveryStatus")->name("site.karamba.status.delivery");
     });
 
     //Routes do administrador do site para manipulação

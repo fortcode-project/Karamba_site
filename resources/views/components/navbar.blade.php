@@ -13,6 +13,7 @@
           <li><a href="{{route("site.karamba.about")}}">Sobre</a></li>
           <li><a  href="{{route("api.loja")}}">Menu</a></li>
           <li><a href="{{route("site.karamba.contact")}}">Contacto</a></li>
+          <li><a href="{{route("site.karamba.status.delivery")}}">Encomenda</a></li>
         </ul>
       </nav><!-- .navbar -->
 
