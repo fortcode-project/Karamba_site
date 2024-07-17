@@ -1,5 +1,7 @@
 
 const endpoint="https://www.rafaelxander.com/chat"
+//const endpoint="http://localhost:8000/chat"
+
 document.getElementById('chatbot-button').addEventListener('click', function() {
     const chatbotContainer = document.getElementById('chatbot-container');
     chatbotContainer.style.display = 'flex';
